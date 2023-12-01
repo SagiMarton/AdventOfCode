@@ -37,7 +37,11 @@ int getCalibrationValueFromLine(std::string* line){
             right--;
     }
 
-    calibration_value = int((*line)[left]) + int((*line)[right]);
+    std::string* calibration_value_string = new std::string();
+    calibration_value_string += (*line)[left];
+    calibration_value_string += (*line)[right];
+    calibration_value = std::stoi(*calibration_value_string);
+    delete calibration_value_string;
 
     return calibration_value;
 
