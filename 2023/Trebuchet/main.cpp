@@ -29,20 +29,20 @@ int getCalibrationValueFromLine(std::string* line){
     int right = line->length()-1;
     int calibration_value = 0;
 
-    while (!(std::isalnum((*line)[left]) && std::isalnum((*line)[right])))
+    while (!(std::isdigit((*line)[left]) && std::isdigit((*line)[right])))
     {
-        if (!std::isalnum((*line)[left]))
+        if (!std::isdigit((*line)[left]))
             left++;
-        if (!std::isalnum((*line)[right]))
+        if (!std::isdigit((*line)[right]))
             right--;
     }
 
     std::string* calibration_value_string = new std::string();
-    calibration_value_string += (*line)[left];
-    calibration_value_string += (*line)[right];
+    *calibration_value_string += (*line)[left];
+    *calibration_value_string += (*line)[right];
     calibration_value = std::stoi(*calibration_value_string);
-    delete calibration_value_string;
 
+    delete calibration_value_string;
     return calibration_value;
 
 
