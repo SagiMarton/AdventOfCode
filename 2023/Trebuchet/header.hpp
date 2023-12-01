@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cctype>
 
 int getCalibrationValueFromLine(std::string* line);
 int calculateCalibrationValueSum(std::ifstream* input);
